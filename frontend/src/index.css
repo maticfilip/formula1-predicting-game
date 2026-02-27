@@ -1,68 +1,217 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* -----------
+ BASE -----------
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
+/* -----------
+ TYPOGRAPHY -----------
+ */
 h1 {
-  font-size: 3.2em;
+  font-family: 'Russo One', sans-serif; 
+  font-size: 3.5rem;
+  font-weight: 900;
   line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+p {
+  color: #a0a0a0;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+a {
+  color: #e8002d;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff1a47;
+}
+
+/* -----------
+ BUTTONS -----------
+ */
+.btn-primary {
+  background-color: #e8002d;
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: background-color 0.2s ease;
+  font-family: "DM Sans", sans-serif;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.btn-primary:hover {
+  background-color: #ff1a47;
+}
+
+
+.btn-secondary {
+  background-color: transparent;
+  color: #e8002d;
+  border: none;
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-family: "DM Sans", sans-serif;
+}
+
+.btn-secondary:hover{
+  color:#ff1a47;
+}
+
+.btn-tertiary {
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-family: "DM Sans", sans-serif;
+}
+
+.btn-tertiary:hover {
+  color: #ffacac;
+}
+
+/* -----------
+ LAYOUT -----------
+ */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+/* -----------
+ CARDS -----------
+ */
+.card {
+  background-color: #141414;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+/* -----------
+ NAVBAR -----------
+ */
+.navbar {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #1a1a1a;
+  position: sticky;
+  top: 0;
+  background-color: #0a0a0a;
+  z-index: 100;
+}
+
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.navbar-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.navbar-logo span {
+  color: #e8002d;
+}
+
+.navbar-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* -----------
+ ACCENT -----------
+ */
+.text-red {
+  color: #e8002d;
+}
+
+.text-muted {
+  color: #a0a0a0;
+  font-size: 0.875rem;
+}
+
+/* -----------
+ DIVIDER -----------
+ */
+.divider {
+  border: none;
+  border-top: 1px solid #1a1a1a;
+  margin: 0;
+}
+
+
+/*----------FOOTER-------------*/
+
+.footer-text{
+  color:#ffffff;
+  transition:color 0.3s; 
+}
+
+/*-------------LOGIN-----------*/
+
+.form-input {
+    background-color: #0a0a0a;
+    border: 1px solid #333333;
+    color: #ffffff;
+}
+
+.form-input:focus {
+    background-color: #0a0a0a;
+    border-color: #e8002d;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+.form-input::placeholder {
+    color: #555555;
 }
