@@ -1,13 +1,12 @@
 from fastapi import FastAPI
 from app.database import engine
+from app import models
 
 app=FastAPI()
 
+models.Base.metadata.create_all(bind=engine)
+
 @app.get("/")
 def root():
-    try:
-        with engine.connect() as connection:
-            return {"message":"Success","database":"connected"}
-    except Exception as e:
-        return {"message":"Success","database":str(e)}
+    return {"message":"F1 predictor is running"}
 
