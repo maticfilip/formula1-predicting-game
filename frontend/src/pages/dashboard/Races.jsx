@@ -1,12 +1,43 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-
+import axios from "axios"
 
 function Races(){
     const [currentRound, setCurrentRound] = useState(1)
+    const [drivers, setDrivers]=useState([])
+    const [loading, setLoading]=useState(true)
+
+    useEffect(()=>{
+        axios.get("http://localhost:8000/api/drivers")
+        .then(respone=>{
+            setDrivers(response.data)
+            setLoading(false)
+        })
+        .catch(error=>{
+            console.error(error)
+            setLoading(false)
+
+        })
+    }, [])
+
+    if (loading) return <p className="text-muted">Loading...</p>
 
     return(
+        
         <div>
+            <div>
+                <h2>Drivers</h2>
+                {drivers.map(driver => (
+                    <div key={driver.id} className="card p-3 mb-2">
+                        <p className="text-white mb-0">
+                            #{driver.number} {driver.name}
+                            <span className="text-muted ms-2" style={{fontSize: '0.85rem'}}>
+                                {driver.team.name}
+                            </span>
+                        </p>
+                    </div>
+                ))}
+            </div>
             <div className="race-navigation d-flex align-items-center gap-3 mb-4">
                 <button 
                     className="btn-secondary"
